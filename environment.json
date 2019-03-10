@@ -1,0 +1,15 @@
+{
+	"id": "8ebf7255-c914-446e-b789-a52550f3a5a3",
+	"name": "Dev4",
+	"values": [
+		{
+			"key": "host",
+			"value": "http://35.232.56.216",
+			"description": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-03-10T00:59:54.132Z",
+	"_postman_exported_using": "Postman/6.7.4"
+}
