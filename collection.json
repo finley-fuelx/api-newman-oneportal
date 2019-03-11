@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "7a972e88-723a-4893-8910-f0bfaeb055fe",
+		"name": "PostManTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth Copy",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43662497-2bae-4b18-a4fb-b5e45de56df9",
+								"exec": [
+									"// see more examples ",
+									"// https://learning.getpostman.com/docs/postman/scripts/test_examples/",
+									"pm.test(\"Login success\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(true);",
+									"    pm.expect(jsonData.data.id).to.eql(115);",
+									"    // pm.response.to.have.jsonBody; ",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"testadmin\",\n\t\"password\": \"fuelx123\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/session/getSessionInfo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"session",
+								"getSessionInfo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GenerateSessionbyUserAndPwd",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "testadmin",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "fuelx123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://dev.admin.fuelx.com/session/getSessionInfo?username=testadmin&password=fuelx123",
+									"protocol": "http",
+									"host": [
+										"dev",
+										"admin",
+										"fuelx",
+										"com"
+									],
+									"path": [
+										"session",
+										"getSessionInfo"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "testadmin"
+										},
+										{
+											"key": "password",
+											"value": "fuelx123"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Oct 2018 10:22:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.7 (Ubuntu)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/5.5.9-1ubuntu4.26"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "6438bb"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"PHPSESSID\": \"PHPSESSID=2m39hdbef6nj3dr3krmf6dfu80\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login Failed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43662497-2bae-4b18-a4fb-b5e45de56df9",
+								"exec": [
+									"// see more examples ",
+									"// https://learning.getpostman.com/docs/postman/scripts/test_examples/",
+									"pm.test(\"Login failed\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql('Login invalid');",
+									"    // pm.response.to.have.jsonBody; ",
+									"});",
+									"",
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"testadmin\",\n\t\"password\": \"wrong-password\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/session/getSessionInfo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"session",
+								"getSessionInfo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GenerateSessionbyUserAndPwd",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "testadmin",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "fuelx123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://dev.admin.fuelx.com/session/getSessionInfo?username=testadmin&password=fuelx123",
+									"protocol": "http",
+									"host": [
+										"dev",
+										"admin",
+										"fuelx",
+										"com"
+									],
+									"path": [
+										"session",
+										"getSessionInfo"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "testadmin"
+										},
+										{
+											"key": "password",
+											"value": "fuelx123"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Oct 2018 10:22:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.7 (Ubuntu)"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/5.5.9-1ubuntu4.26"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "6438bb"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"PHPSESSID\": \"PHPSESSID=2m39hdbef6nj3dr3krmf6dfu80\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
