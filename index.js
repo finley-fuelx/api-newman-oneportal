@@ -1,10 +1,10 @@
 const newman = require('newman');
-
+const config = require('./env');
 // Using Newman with the Postman API
 // https://github.com/postmanlabs/newman#using-newman-with-the-postman-api
-const collection_uid  = '6864925-7a972e88-723a-4893-8910-f0bfaeb055fe';
-const environment_uid = '6864925-8ebf7255-c914-446e-b789-a52550f3a5a3';
-const api_key = '6feb91e0623149f091c4f61eef11bc58';
+const api_key = config.api_key;
+const collection_uid  = config.collection;
+const environment_uid = config.environment;
 
 // call newman.run to pass `options` object and wait for callback
 newman.run({
